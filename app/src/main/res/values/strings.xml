@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">NewsViews</string>
+
+    <string name="raju">
+        <br>
+          1. JAVA (Basic and OOP)\n</br>
+            <br>
+          2. Mobile Phone Application (Android)\n</br>
+            <br>
+          3. Database (Sql, SqLite, Firebase)\n</br>
+            <br>
+          4. C (Programing Language)\n</br>
+            <br>
+          5. HTML5\n</br>
+            <br>
+          6. CSS3 \n</br>
+    </string>
+    <string name="razu">razu</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 </resources>
