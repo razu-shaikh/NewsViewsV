@@ -1,16 +1,11 @@
 package com.example.rajus.newsviews;
 
-import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.rajus.newsviews.Api.ApiClient;
@@ -26,9 +21,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener    {
-    private DrawerLayout mDrawer;
-    private ActionBarDrawerToggle mToggle;
+public class MainActivity extends AppCompatActivity implements  SwipeRefreshLayout.OnRefreshListener{
 
     public static final String API_KEY = "c28282ab9fa44f5a9e211b0e8b91bca1";
     private RecyclerView recyclerView;
@@ -38,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private List<Article> articles = new ArrayList<>();
     private List<Article> article = new ArrayList<>();
     private Adapter adapter;
+
+    private SwipeRefreshLayout swipeRefreshLayout;
     private String TAG = MainActivity.class.getSimpleName();
 
     @Override
@@ -45,33 +40,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        swipeRefreshLayout =(SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
+        swipeRefreshLayout.setOnRefreshListener(this);
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView1);
         layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setNestedScrollingEnabled(false);
-        loadJson();
+        //loadJson();
         recyclerView2 = (RecyclerView) findViewById(R.id.recyclerView2);
         layoutManager2 = new LinearLayoutManager(MainActivity.this);
         recyclerView2.setLayoutManager(layoutManager2);
         recyclerView2.setItemAnimator(new DefaultItemAnimator());
         recyclerView2.setNestedScrollingEnabled(false);
-        loadJsonJson();
-
-        mDrawer = (DrawerLayout)findViewById(R.id.drawer);
-        mToggle = new ActionBarDrawerToggle(this,mDrawer,R.string.open,R.string.close);
-
-        mDrawer.addDrawerListener(mToggle);
-        mToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        NavigationView nave_view= (NavigationView) findViewById(R.id.nave_view);
-        nave_view.setNavigationItemSelectedListener(this);
-
+        //loadJsonJson();
+        onLoadingSwipeRefresh("","");
 
     }
 
-    public void loadJson(){
+    public void loadJson(final String keyword){
+        swipeRefreshLayout.setRefreshing(true);
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         String country = Utils.getCountry();
 
@@ -91,9 +81,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     adapter = new Adapter(articles, MainActivity.this);
                     recyclerView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
+                    swipeRefreshLayout.setRefreshing(false);
 
                 } else {
-
+                    swipeRefreshLayout.setRefreshing(false);
                     Toast.makeText(MainActivity.this,"NO Result", Toast.LENGTH_SHORT).show();
 
                 }
@@ -101,12 +92,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onFailure(Call<News> call, Throwable t) {
+                swipeRefreshLayout.setRefreshing(false);
 
             }
         });
 
     }
-    public void loadJsonJson(){
+    public void loadJsonJson(final String keyword2){
         ApiInterfaceNews apiInterface = ApiClient.getApiClient().create(ApiInterfaceNews.class);
         //String country = Utils.getCountry();
 
@@ -144,22 +136,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (mToggle.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+    public void onRefresh() {
+        loadJson("");
+        loadJsonJson("");
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-        if (id==R.id.setting){
-            Intent intent = new Intent(MainActivity.this,SettingActivity.class);
-            startActivity(intent);
-        }
+    private void onLoadingSwipeRefresh(final String keyword, final String keyword2){
 
-        return false;
+        swipeRefreshLayout.post(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        loadJson(keyword);
+                        loadJsonJson(keyword2);
+                    }
+                }
+        );
+
     }
 }

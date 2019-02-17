@@ -18,4 +18,5 @@
     <string name="razu">razu</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="refresh">Refresh page</string>
 </resources>

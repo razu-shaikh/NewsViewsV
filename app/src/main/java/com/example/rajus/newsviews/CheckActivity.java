@@ -23,7 +23,7 @@ public class CheckActivity extends Activity {
         }
         else
           {
-            Intent a=new Intent(CheckActivity.this,MainActivity.class);
+            Intent a=new Intent(CheckActivity.this,GoogleLogInActivity.class);
             startActivity(a);
             finish();
           }

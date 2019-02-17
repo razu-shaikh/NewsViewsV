@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "681263694695",
+    "firebase_url": "https://ownerservicenin.firebaseio.com",
+    "project_id": "ownerservicenin",
+    "storage_bucket": "ownerservicenin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681263694695:android:ed311de2c438e790",
+        "android_client_info": {
+          "package_name": "com.example.rajus.newsviews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681263694695-vvshaa9nqgtat2bplanilf0dr622l6ja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rajus.newsviews",
+            "certificate_hash": "f77c087d5031749ebf7d5a63205278653b8a3dfb"
+          }
+        },
+        {
+          "client_id": "681263694695-kqvnld13gt8u781s7v2coek25ne0t3od.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRwmgVS1JH6L7hYaRbY1t8W530fxURbzw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681263694695-kqvnld13gt8u781s7v2coek25ne0t3od.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

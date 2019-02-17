@@ -1,6 +1,7 @@
 package com.example.rajus.newsviews;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,7 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -34,7 +37,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
     private Context context;
     private OnItemClickListener onItemClickListener;
 
-
     public Adapter(List<Article> articles, Context context) {
         this.articles = articles;
         this.context = context;
@@ -48,9 +50,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holders, int position) {
-        final MyViewHolder holder = holders;
-        Article model = articles.get(position);
+    public void onBindViewHolder(@NonNull MyViewHolder holders, final int position) {
+         final MyViewHolder holder = holders;
+         final Article model = articles.get(position);
 
         RequestOptions requestOptions = new RequestOptions();
         requestOptions.placeholder(Utils.getRandomDrawbleColor());
@@ -84,6 +86,18 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
         holder.published_ad.setText(Utils.DateFormat(model.getPublishedAt()));
         holder.author.setText(model.getAuthor());
 
+        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,HomeActivity.class);
+                intent.putExtra("img",model.getUrlToImage());
+                intent.putExtra("title",model.getTitle());
+                intent.putExtra("content",model.getUrl());
+                context.startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
@@ -106,6 +120,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
         ProgressBar progressBar;
         OnItemClickListener onItemClickListener;
 
+        RelativeLayout relativeLayout;
+
         public MyViewHolder(View itemView, OnItemClickListener onItemClickListener) {
 
             super(itemView);
@@ -119,6 +135,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder>{
             time = (TextView) itemView.findViewById(R.id.time);
             imageView = (ImageView) itemView.findViewById(R.id.img);
             progressBar = (ProgressBar) itemView.findViewById(R.id.prograss_load_photo);
+
+            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.relative_layout);
 
             this.onItemClickListener = onItemClickListener;
 

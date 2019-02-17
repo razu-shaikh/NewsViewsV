@@ -38,6 +38,18 @@ public class Article {
     @Expose
     private String publishedAt;
 
+    @SerializedName("content")
+    @Expose
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public Source getSource() {
         return source;
     }

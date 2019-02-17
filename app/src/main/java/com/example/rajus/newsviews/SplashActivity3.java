@@ -24,7 +24,7 @@ public class SplashActivity3 extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 finally {
-                    Intent intent = new Intent(SplashActivity3.this, MainActivity.class);
+                    Intent intent = new Intent(SplashActivity3.this, GoogleLogInActivity.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }
