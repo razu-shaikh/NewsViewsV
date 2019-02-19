@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -55,6 +56,7 @@ public class GoogleLogInActivity extends AppCompatActivity {
 
                 if (firebaseAuth.getCurrentUser()!=null){
                     startActivity(new Intent(GoogleLogInActivity.this,MainActivity.class));
+                    overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 }
             }
         };
@@ -120,7 +122,10 @@ public class GoogleLogInActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                         Toast.makeText(GoogleLogInActivity.this,"Google LogIn  Successfully",Toast.LENGTH_LONG).show();
+                        Toast toast= Toast.makeText(GoogleLogInActivity.this,"Google LogIn  Successfully",Toast.LENGTH_LONG);
+                            toast.setGravity(Gravity.CENTER,0,0);
+                            toast.show();
+
                         }
 
                     }

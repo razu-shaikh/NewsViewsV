@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rajus.newsviews.SettingActivity">
+    android:orientation="vertical"
+    tools:context="com.example.rajus.newsviews.SettingActivity"
+    android:background="@color/colorPrimary">
+
+    <RelativeLayout
+        android:layout_weight=".8"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relative"
+        android:background="@color/colorAccent">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SETTING"/>
+         android:text="NewsViews App"
+        android:textAlignment="center"
+        android:textColor="#f7efef"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
+   </RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_marginTop="20dp"
+        android:layout_weight=".2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/relative2"
+        android:background="#faf7f7">
+
+
+        <TextView
+            android:id="@+id/text_view1"
+            android:padding="10dp"
+            android:layout_marginLeft="4dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/version"
+            android:textColor="#000"
+            android:textStyle="bold"
+            />
+        <TextView
+
+            android:padding="10dp"
+            android:layout_marginLeft="4dp"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/thank"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/text_view1"/>
+    </RelativeLayout>
+
+</LinearLayout>

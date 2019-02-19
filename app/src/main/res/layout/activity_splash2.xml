@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#bfe4d9"
+    android:background="@color/colorBack"
     tools:context="com.example.rajus.newsviews.SplashActivity2">
 
     <TextView

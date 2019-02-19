@@ -19,4 +19,16 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="refresh">Refresh page</string>
+    <string name="version">
+        This application is suitable for: \n
+        <br>
+        1.minSdkVersion 19\n</br>
+        <br>
+        2.targetSdkVersion 25\n</br>
+     <br>
+         This application is developed using android studio 2.3.3\n</br>
+     </string>
+    <string name="thank">
+        Thank You Very Much
+    </string>
 </resources>

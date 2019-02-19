@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="#8a8d99"
+    android:background="@color/colorBack"
     tools:context="com.example.rajus.newsviews.GoogleLogInActivity">
 
     <com.google.android.gms.common.SignInButton

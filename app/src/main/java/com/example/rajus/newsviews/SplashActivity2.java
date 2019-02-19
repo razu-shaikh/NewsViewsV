@@ -18,7 +18,7 @@ public class SplashActivity2 extends AppCompatActivity {
             {
                 try
                 {
-                    sleep(5000);
+                    sleep(4000);
                 }
                 catch(Exception e)
                 {

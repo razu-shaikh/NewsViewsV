@@ -142,4 +142,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
     }
+
+    public void numberPlayActivity(View view) {
+        Intent intent = new Intent(HomeActivity.this,NumberPlayActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+    }
 }
