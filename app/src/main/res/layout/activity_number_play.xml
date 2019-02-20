@@ -37,7 +37,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:text="search"/>
+                android:text="search"
+                android:layout_marginRight="7dp"/>
 
         </RelativeLayout>
 

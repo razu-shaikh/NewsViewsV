@@ -26,7 +26,8 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".GoogleLogInActivity" />
-        <activity android:name=".NumberPlayActivity"></activity>
+        <activity android:name=".NumberPlayActivity" />
+        <activity android:name=".DatePlayActivity"></activity>
     </application>
 
 </manifest>

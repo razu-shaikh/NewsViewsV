@@ -48,12 +48,13 @@
         android:layout_weight=".7"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:gravity="center_horizontal">
 
         <Button
+            android:id="@+id/number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Play Numbering Game"
+            android:text="Number playing Game"
             android:textStyle="bold"
             android:textSize="16sp"
             android:background="@color/colorAccent"
@@ -61,6 +62,20 @@
             android:padding="10dp"
             android:onClick="numberPlayActivity"
             android:textColor="@color/cardview_light_background"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date    Playing    Game"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:background="@color/colorAccent"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:onClick="DatePlayActivity"
+            android:textColor="@color/cardview_light_background"
+            android:layout_below="@+id/number"
             />
     </RelativeLayout>
 

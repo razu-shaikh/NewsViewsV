@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBack"
+    tools:context="com.example.rajus.newsviews.DatePlayActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/json_relative"
+        android:layout_marginTop="20dp"
+        >
+
+        <EditText
+            android:id="@+id/edit_text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="1/2 (Search this format)"
+            android:layout_marginLeft="10sp"
+            android:background="#e7e5e5"
+            android:padding="10sp"
+            android:layout_marginTop="5dp"
+            android:inputType="textEmailAddress"
+            />
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="search"
+            android:layout_marginRight="7dp"/>
+
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/web_view_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp">
+
+    </WebView>
+</LinearLayout>

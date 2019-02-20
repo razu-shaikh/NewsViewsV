@@ -83,8 +83,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
                 alert = new AlertDialog.Builder(HomeActivity.this);
 
-                alert.setTitle("Title");
-                alert.setMessage("If you want to read Detail..Please press ok");
+                alert.setTitle("Continue....");
+                alert.setMessage("If you want to read Detail..Please press Yes");
 
                 alert.setPositiveButton("Yes",  new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -148,5 +148,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
+    }
+
+    public void DatePlayActivity(View view) {
+        Intent intent = new Intent(HomeActivity.this,DatePlayActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }
